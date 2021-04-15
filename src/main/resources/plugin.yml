@@ -1,5 +1,14 @@
-name: SamplePlugin
+name: LookingDuplicateMobs
 author: DarkBow_
 version: 1.0
-main: fr.darkbow_.sampleplugin.SamplePlugin
+main: fr.darkbow_.lookingatmobsduplicatethem.Main
 api-version: 1.16
+commands:
+  lookduplimobs:
+    description: Dont look at living entities OR You will be surrounded by Creepers!
+    permission: d
+    aliases:
+      - ldm
+      - lookingduplimobs
+      - lookdmobs
+      - ldmobs
