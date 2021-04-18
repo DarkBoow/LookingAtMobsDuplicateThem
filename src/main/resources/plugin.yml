@@ -6,7 +6,7 @@ api-version: 1.16
 commands:
   lookduplimobs:
     description: Dont look at living entities OR You will be surrounded by Creepers!
-    permission: d
+    permission:
     aliases:
       - ldm
       - lookingduplimobs
