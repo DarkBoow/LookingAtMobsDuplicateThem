@@ -1,7 +1,9 @@
 package fr.darkbow_.lookingatmobsduplicatethem;
 
 import com.google.common.collect.Sets;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,7 +44,7 @@ public class Main extends JavaPlugin {
         }
 
         System.out.println("[LookingDuplicateMobs] Plugin ON!");
-        task = new Task(this).runTaskTimer(this, 2L, 2L);
+        task = new Task(this).runTaskTimer(this, 1L, 1L);
         Task.isRunning = true;
     }
 
@@ -120,6 +122,7 @@ public class Main extends JavaPlugin {
             newliventity.setRemainingAir(lentity.getRemainingAir());
             newliventity.setRemoveWhenFarAway(lentity.getRemoveWhenFarAway());
             newliventity.setAbsorptionAmount(lentity.getAbsorptionAmount());
+            newliventity.setMaxHealth(lentity.getMaxHealth());
             newliventity.setHealth(lentity.getHealth());
             newliventity.setOp(lentity.isOp());
             newliventity.setMaxHealth(lentity.getMaxHealth());
@@ -182,10 +185,16 @@ public class Main extends JavaPlugin {
                 Wolf oldwolf = (Wolf) lentity;
                 Wolf newwolf = (Wolf) newliventity;
 
-                newwolf.setOwner(oldwolf.getOwner());
-                newwolf.setCollarColor(oldwolf.getCollarColor());
-                newwolf.setAngry(oldwolf.isAngry());
-                newwolf.setTarget(oldwolf.getTarget());
+                if(oldwolf.isTamed()){
+                    newwolf.setTamed(oldwolf.isTamed());
+                    if(oldwolf.isLeashed()){
+                        newwolf.setLeashHolder(oldwolf.getLeashHolder());
+                    }
+                    newwolf.setOwner(oldwolf.getOwner());
+                    newwolf.setCollarColor(oldwolf.getCollarColor());
+                    newwolf.setAngry(oldwolf.isAngry());
+                    newwolf.setTarget(oldwolf.getTarget());
+                }
             }
         }
         return clone;

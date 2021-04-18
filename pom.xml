@@ -6,7 +6,7 @@
 
     <groupId>fr.darkbow_</groupId>
     <artifactId>LookingDuplicateMobs</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <repositories>
         <!-- And so on -->
