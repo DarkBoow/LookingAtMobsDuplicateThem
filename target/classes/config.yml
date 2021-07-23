@@ -1,1 +1,6 @@
 delay: 4 #(in ticks, so 20 = 1 second)
+gamemodes:
+  adventure: true
+  survival: true
+  creative: false
+  spectator: false
